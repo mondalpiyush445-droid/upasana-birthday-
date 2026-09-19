@@ -1,0 +1,1180 @@
+@import "tailwindcss";
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        system-ui,
+        -apple-system,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f0ff,
+            #fff5fb
+        );
+
+    color: #4b4055;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   SCREEN SYSTEM
+========================================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================================
+   NAME SCREEN
+========================================= */
+
+#nameScreen {
+    background:
+        radial-gradient(
+            circle at top left,
+            #ffffff 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f0ff,
+            #fff5fb
+        );
+}
+
+
+.intro-card {
+    width: min(500px, 95vw);
+
+    padding: 45px 35px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 249, 253, 0.95);
+
+    border: 2px solid #eadcf3;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(94, 71, 127, 0.12);
+
+    animation: cardAppear 0.8s ease;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.top-sparkles {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+    animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+.intro-card h1 {
+    color: #5e477f;
+
+    font-size: clamp(30px, 7vw, 42px);
+
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+
+.subtitle {
+    color: #8d7d96;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+.big-cat {
+    font-size: 90px;
+
+    margin: 10px 0 15px;
+
+    animation:
+        catBounce 2.2s ease-in-out infinite;
+    user-select: none;
+}
+
+
+@keyframes catBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.intro-card h2 {
+    color: #5e477f;
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+#nameInput {
+    width: 90%;
+
+    max-width: 350px;
+
+    padding: 15px 18px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #fce4ef;
+
+    color: #4b4055;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+
+#nameInput:focus {
+    box-shadow:
+        0 0 0 4px
+        rgba(155, 126, 222, 0.25);
+}
+
+
+#nameInput::placeholder {
+    color: #a58fa8;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.3) !important;
+}
+
+
+#enterButton,
+#musicButton {
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b7ede,
+            #8063c4
+        );
+
+    border-radius: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+#enterButton {
+    margin-top: 18px;
+
+    padding: 13px 38px;
+
+    font-size: 14px;
+}
+
+
+#enterButton:hover,
+#musicButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(126, 99, 196, 0.25);
+}
+
+
+#enterButton:active,
+#musicButton:active {
+    transform: translateY(0);
+}
+
+
+.small-note {
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    color: #9a899f;
+}
+
+
+/* =========================================
+   BIRTHDAY SCREEN
+========================================= */
+
+#birthdayScreen {
+    align-items: flex-start;
+
+    padding-top: 35px;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,255,255,0.8),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(243,166,200,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f0ff,
+            #fff5fb
+        );
+}
+
+
+.birthday-card {
+    width: min(760px, 94vw);
+
+    padding: 30px 25px 25px;
+
+    background:
+        rgba(255, 249, 253, 0.96);
+
+    border:
+        2px solid #eadcf3;
+
+    border-radius: 32px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px
+        rgba(94, 71, 127, 0.15);
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        birthdayAppear 1s ease;
+    margin: 0 auto;
+}
+
+
+@keyframes birthdayAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.heading-decoration {
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+
+.birthday-card h1 {
+    color: #5e477f;
+
+    font-size: clamp(30px, 7vw, 52px);
+
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+
+.birthday-card h2 {
+    color: #f3a6c8;
+
+    font-size: clamp(25px, 6vw, 36px);
+
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+.balloon {
+    position: fixed;
+
+    font-size: 55px;
+
+    z-index: 1;
+
+    animation:
+        balloonFloat 4s ease-in-out infinite;
+    user-select: none;
+}
+
+
+.balloon-1 {
+    top: 9%;
+    left: 5%;
+}
+
+
+.balloon-2 {
+    top: 18%;
+    left: 13%;
+
+    animation-delay: 0.8s;
+}
+
+
+.balloon-3 {
+    top: 10%;
+    right: 6%;
+
+    animation-delay: 1.3s;
+}
+
+
+.balloon-4 {
+    top: 22%;
+    right: 13%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(4deg);
+    }
+}
+
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+.sparkle {
+    position: fixed;
+
+    color: #f4c95d;
+
+    font-size: 28px;
+
+    z-index: 2;
+
+    animation:
+        sparklePulse 1.8s ease-in-out infinite;
+    user-select: none;
+}
+
+
+.sparkle-1 {
+    top: 32%;
+    left: 8%;
+}
+
+
+.sparkle-2 {
+    top: 45%;
+    right: 8%;
+
+    animation-delay: 0.5s;
+}
+
+
+.sparkle-3 {
+    top: 70%;
+    left: 12%;
+
+    animation-delay: 1s;
+}
+
+
+.sparkle-4 {
+    top: 67%;
+    right: 13%;
+
+    animation-delay: 1.4s;
+}
+
+
+@keyframes sparklePulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.8) rotate(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(25deg);
+    }
+}
+
+
+/* =========================================
+   CAT
+========================================= */
+
+.cat-container {
+    height: 330px;
+
+    position: relative;
+
+    max-width: 500px;
+
+    margin: 10px auto 0;
+}
+
+
+.cat {
+    position: absolute;
+
+    width: 170px;
+    height: 150px;
+
+    left: 50%;
+    top: 85px;
+
+    transform: translateX(-50%);
+
+    animation:
+        catFloat 2.5s ease-in-out infinite;
+
+    z-index: 3;
+}
+
+
+@keyframes catFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-8px);
+    }
+}
+
+
+.cat-face {
+    position: absolute;
+
+    width: 140px;
+    height: 125px;
+
+    left: 15px;
+
+    background: #f5c9a9;
+
+    border-radius:
+        48%
+        48%
+        45%
+        45%;
+
+    z-index: 3;
+}
+
+
+.ear {
+    position: absolute;
+
+    width: 48px;
+    height: 55px;
+
+    background: #f5c9a9;
+
+    top: -18px;
+
+    z-index: 2;
+}
+
+
+.left-ear {
+    left: 18px;
+
+    transform:
+        rotate(-25deg)
+        skewY(-12deg);
+
+    border-radius:
+        15px
+        40px
+        10px
+        5px;
+}
+
+
+.right-ear {
+    right: 18px;
+
+    transform:
+        rotate(25deg)
+        skewY(12deg);
+
+    border-radius:
+        40px
+        15px
+        5px
+        10px;
+}
+
+
+.eye {
+    position: absolute;
+
+    width: 14px;
+    height: 18px;
+
+    top: 48px;
+
+    background: #4b4055;
+
+    border-radius: 50%;
+
+    animation:
+        blink 4s infinite;
+}
+
+
+.left-eye {
+    left: 38px;
+}
+
+
+.right-eye {
+    right: 38px;
+}
+
+
+@keyframes blink {
+
+    0%,
+    94%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    96% {
+        transform: scaleY(0.1);
+    }
+}
+
+
+.nose {
+    position: absolute;
+
+    top: 68px;
+    left: 65px;
+
+    width: 12px;
+    height: 9px;
+
+    background: #d47a9f;
+
+    clip-path:
+        polygon(
+            50% 100%,
+            0 0,
+            100% 0
+        );
+}
+
+
+.mouth {
+    position: absolute;
+
+    top: 75px;
+
+    width: 14px;
+    height: 9px;
+
+    border-bottom:
+        2px solid #4b4055;
+
+    border-radius: 50%;
+}
+
+
+.left-mouth {
+    left: 58px;
+    transform: rotate(15deg);
+}
+
+
+.right-mouth {
+    left: 69px;
+    transform: rotate(-15deg);
+}
+
+
+.whisker {
+    position: absolute;
+
+    width: 48px;
+    height: 1px;
+
+    background: #6e5d70;
+}
+
+
+.w1 {
+    left: -35px;
+    top: 68px;
+
+    transform: rotate(10deg);
+}
+
+
+.w2 {
+    left: -35px;
+    top: 78px;
+
+    transform: rotate(-5deg);
+}
+
+
+.w3 {
+    right: -35px;
+    top: 68px;
+
+    transform: rotate(-10deg);
+}
+
+
+.w4 {
+    right: -35px;
+    top: 78px;
+
+    transform: rotate(5deg);
+}
+
+
+.cat-body {
+    position: absolute;
+
+    width: 115px;
+    height: 100px;
+
+    left: 27px;
+    top: 90px;
+
+    background: #f5c9a9;
+
+    border-radius:
+        50%
+        50%
+        30%
+        30%;
+}
+
+
+.cat-tail {
+    position: absolute;
+
+    width: 80px;
+    height: 65px;
+
+    left: 100px;
+    top: 105px;
+
+    border:
+        14px solid #f5c9a9;
+
+    border-left-color: transparent;
+
+    border-bottom-color: transparent;
+
+    border-radius: 50%;
+
+    transform: rotate(20deg);
+}
+
+
+/* =========================================
+   BIRTHDAY HAT
+========================================= */
+
+.birthday-hat {
+    position: absolute;
+
+    left: 50%;
+
+    top: 20px;
+
+    width: 90px;
+    height: 75px;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    z-index: 5;
+}
+
+
+.hat-body {
+    width: 0;
+    height: 0;
+
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 75px solid #9b7ede;
+}
+
+
+.hat-ball {
+    position: absolute;
+
+    top: -8px;
+    left: 38px;
+
+    color: #f4c95d;
+
+    font-size: 17px;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+.cake {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 145px;
+
+    height: 100px;
+
+    z-index: 4;
+}
+
+
+.plate {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 145px;
+    height: 16px;
+
+    background: #e5d6eb;
+
+    border-radius: 50%;
+}
+
+
+.cake-body {
+    position: absolute;
+
+    bottom: 13px;
+    left: 17px;
+
+    width: 110px;
+    height: 48px;
+
+    background: #f3a6c8;
+
+    border-radius:
+        8px
+        8px
+        12px
+        12px;
+
+    display: flex;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+
+.cream {
+    position: absolute;
+
+    bottom: 50px;
+    left: 17px;
+
+    width: 110px;
+    height: 27px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+
+.candle {
+    position: absolute;
+
+    bottom: 75px;
+    left: 68px;
+
+    width: 10px;
+    height: 34px;
+
+    background: #9b7ede;
+
+    border-radius: 4px;
+
+    z-index: 5;
+}
+
+
+.flame {
+    position: absolute;
+
+    bottom: 107px;
+    left: 67px;
+
+    width: 13px;
+    height: 19px;
+
+    background: #f4c95d;
+
+    border-radius:
+        50%
+        50%
+        50%
+        0;
+
+    transform: rotate(-45deg);
+
+    animation:
+        flame 0.7s ease-in-out infinite alternate;
+
+    z-index: 6;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+
+@keyframes flame {
+
+    from {
+        transform:
+            rotate(-45deg)
+            scale(0.9);
+    }
+
+    to {
+        transform:
+            rotate(-45deg)
+            scale(1.1);
+    }
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+    margin: -5px auto 20px;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    color: #4b4055;
+}
+
+
+.message p:first-child {
+    font-weight: 600;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+.music-box {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 14px 25px;
+
+    background: #fce4ef;
+
+    border-radius: 18px;
+
+    min-width: 260px;
+}
+
+
+.music-title {
+    color: #5e477f;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+
+#musicButton {
+    padding: 10px 25px;
+
+    font-size: 12px;
+}
+
+
+.music-status {
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    color: #927f94;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    font-size: 12px;
+
+    color: #8d7d96;
+}
+
+
+.final-message span {
+    background: white;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(94, 71, 127, 0.06);
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+#confettiContainer {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+
+.confetti {
+    position: absolute;
+
+    top: -20px;
+
+    width: 9px;
+    height: 14px;
+
+    opacity: 0.9;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 18px;
+    }
+
+    .intro-card {
+        padding:
+            35px
+            20px
+            25px;
+    }
+
+    .birthday-card {
+        padding:
+            25px
+            15px
+            22px;
+    }
+
+    .balloon {
+        font-size: 38px;
+    }
+
+    .sparkle {
+        font-size: 20px;
+    }
+
+    .cat-container {
+        height: 300px;
+    }
+
+    .message {
+        font-size: 13px;
+    }
+
+    .final-message {
+        font-size: 11px;
+    }
+
+}
